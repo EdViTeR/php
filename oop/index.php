@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>PHP</title>
-</head>
-<body>
-	<?php 
-		$a = 25;
-		for ($a=25; $a < 200; $a++) { 
-			echo "<a href='oop_$a.php'>ООП $a</a><p>";
-		}
-	?>
-</body>
-</html>
+<?php
+
+echo  '<a href="/">Главная</a><br></br>';
+
+function takeName() {
+    $dir = scandir(__DIR__);
+    foreach ($dir as $key => $value) {
+        $res = preg_replace('#([^\d]+)#', '', basename($value));
+        if (isset($res) && !empty($res)) {
+            $arr[$res] = basename($value);
+        }
+    }
+    return $arr;
+}
+
+$arr = takeName();
+
+function takeLink($arr) {
+    ksort($arr);
+    foreach ($arr as $key => $value) {
+        echo  "<a href='" . basename($value) . "'>" . basename($value) . "</a></br>";
+    }
+    return true;
+}
+
+takeLink($arr);
+
+?>

@@ -1,5 +1,7 @@
 <?php
 
+echo  '<a href="/">Главная</a><br></br>';
+
 function takeName() {
     $dir = scandir(__DIR__);
     foreach ($dir as $key => $value) {
