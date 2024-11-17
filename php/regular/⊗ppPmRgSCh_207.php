@@ -14,4 +14,6 @@ echo preg_match('#txt$|html$|php$#', $str) . '</br>';
 
 #№5
 echo preg_match('#jpg$|jpeg$#', $str) . '</br>';
+
+echo  '<br></br><a href="regular.php">Назад</a>';
 ?>

@@ -10,4 +10,6 @@ $arr[] = 'aaa 12 bbb';    // 0
 foreach ($arr as $str) {
 	echo $str . ' ' . preg_match($reg, $str) . '<br>';
 }
+
+echo  '<br></br><a href="regular.php">Назад</a>';
 ?>

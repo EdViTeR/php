@@ -30,4 +30,6 @@ foreach ($arr as $str) {
 #foreach ($arr as $str) {
 #	echo $str . ' ' . preg_match($reg, $str) . '<br>';
 #}
+
+echo  '<br></br><a href="regular.php">Назад</a>';
 ?>

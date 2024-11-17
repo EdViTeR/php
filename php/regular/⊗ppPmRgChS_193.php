@@ -30,4 +30,6 @@ echo preg_replace('#a[a-zA-Z]+a#', '!', $str) . '</br>';
 #№8
 $str = 'aAXa aeffa aGha aza ax23a a3sSa';
 echo preg_replace('#a[a-z0-9]+a#', '!', $str) . '</br>';
+
+echo  '<br></br><a href="regular.php">Назад</a>';
 ?>

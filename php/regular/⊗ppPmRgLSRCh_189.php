@@ -22,4 +22,6 @@ echo preg_replace('#\*q+\+#', '!', $str) . '</br>';
 #№6
 $str = '[abc] {abc} abc (abc) [abc]';
 echo preg_replace('#\[...\]#', '!', $str) . '</br>';
+
+echo  '<br></br><a href="regular.php">Назад</a>';
 ?>

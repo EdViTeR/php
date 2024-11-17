@@ -11,4 +11,6 @@ echo preg_replace('#x[^A-Z]+z#', '!', $str) . '</br>';
 
 #№4
 echo preg_replace('#x[^a-z1-5]+z#', '!', $str) . '</br>';
+
+echo  '<br></br><a href="regular.php">Назад</a>';
 ?>
