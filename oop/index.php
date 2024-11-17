@@ -6,7 +6,11 @@
 	<title>PHP</title>
 </head>
 <body>
-	<a href="php/index.php">PHP</a></br>
-	<a href="oop/index.php">ООП</a>
+	<?php 
+		$a = 25;
+		for ($a=25; $a < 200; $a++) { 
+			echo "<a href='oop_$a.php'>ООП $a</a><p>";
+		}
+	?>
 </body>
 </html>
