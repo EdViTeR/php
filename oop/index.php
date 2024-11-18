@@ -24,5 +24,4 @@ function takeLink($arr) {
 }
 
 takeLink($arr);
-
 ?>
