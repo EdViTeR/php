@@ -7,6 +7,7 @@
 </head>
 <body>
 	<a href="php/regular/regular.php">Регулярные выражения</a></br>
-	<a href="oop/index.php">ООП</a>
+	<a href="oop/index.php">ООП</a></br>
+	<a href="task/index.php">Задачник</a>
 </body>
 </html>
