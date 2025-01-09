@@ -54,9 +54,23 @@ $arr = [
 	$user3 = new User('jane', 'hhh'),
 ];
 
-// 11
-foreach ($arr as $key => $value) {
-	if ($value instanceof User) {
-		echo $value->name . ' Имя<p>';
-	}
-}
+// №11
+// foreach ($arr as $key => $value) {
+// 	if ($value instanceof Employee) {
+// 		echo $value->name . ' Имя<p>';
+// 	}
+// }
+
+// №12
+// foreach ($arr as $key => $value) {
+// 	if (!($value instanceof User)) {
+// 		echo $value->name . ' Имя<p>';
+// 	}
+// }
+
+// №13
+// foreach ($arr as $key => $value) {
+// 	if ($value instanceof User) {
+// 		echo $value->name . ' Имя<p>';
+// 	}
+// }
