@@ -8,5 +8,5 @@ $employee = new Employee;
 $student = new Student('eric');
 echo $student->name;
 
-echo '<br></br><a href="../intro.php">Назад</a>';
+echo '<br></br><a href="../index.php">Назад</a>';
 ?>
