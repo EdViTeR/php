@@ -5,9 +5,9 @@ require_once 'Figure.php';
  * 
  */
 class Quadrate implements Figure {
-
-	private $a;
 	
+	private $a;
+
 	function __construct($a) {
 		$this->a = $a;
 	}
@@ -20,7 +20,3 @@ class Quadrate implements Figure {
 		return $this->a * 4;
 	}
 }
-
-$quadrate = new Quadrate(2);
-echo $quadrate->getSquare();
-echo $quadrate->getPerimeter();

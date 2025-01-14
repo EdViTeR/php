@@ -1,10 +1,10 @@
 <?php
-require_once 'Figure.php';
+require_once 'iFigure.php';
 
 /**
  * 
  */
-class Quadrate implements Figure {
+class Quadrate implements iFigure {
 
 	private $a;
 	
@@ -20,7 +20,3 @@ class Quadrate implements Figure {
 		return $this->a * 4;
 	}
 }
-
-$quadrate = new Quadrate(2);
-echo $quadrate->getSquare();
-echo $quadrate->getPerimeter();
