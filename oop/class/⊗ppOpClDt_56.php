@@ -67,35 +67,35 @@ class Date {
 	
 	// добавляет значение $value к дню
 	public function addDay($value) {
-		$this->date = date("Y-m-d", strtotime($this->date)+60*60*24*$value);
+		$this->date = $this->format(date_modify(date_create($this->date), $value . ' day'));
 	}
 	
 	public function subDay($value) {
-		$this->date = date("Y-m-d", strtotime($this->date)-60*60*24*$value);
+		$this->date = $this->format(date_modify(date_create($this->date), -$value . ' day'));
 	}
 	
 	public function addMonth($value) {
-		$this->date = date('Y-m-d', strtotime('+' . $value . ' MONTH', strtotime($this->date)));
+		$this->date = $this->format(date_modify(date_create($this->date), $value . ' month'));
 	}
 	
 	// отнимает значение $value от месяца
 	public function subMonth($value) {
-		$this->date = date('Y-m-d', strtotime('-' . $value . ' MONTH', strtotime($this->date)));
+		$this->date = $this->format(date_modify(date_create($this->date), -$value . ' month'));
 	}
 	
 	public function addYear($value) {
-		$this->date = date('Y-m-d', strtotime('+' . $value . ' YEAR', strtotime($this->date)));
+		$this->date = $this->format(date_modify(date_create($this->date), $value . ' year'));
 	}
 	
 	// отнимает значение $value от года
 	public function subYear($value) {
-		$this->date = date('Y-m-d', strtotime('+' . $value . ' YEAR', strtotime($this->date)));
+		$this->date = $this->format(date_modify(date_create($this->date), -$value . ' year'));
 	}
 	
 	// выведет дату в указанном формате
 	// формат пусть будет такой же, как в функции date
 	public function format($format) {
-		return date($format, strtotime($this->date));
+		return date_format($format, 'Y-m-d');
 	}
 	
 	// выведет дату в формате 'год-месяц-день'
@@ -104,22 +104,19 @@ class Date {
 	}
 }
 
-$date = new Date('2025-06-31');
+$date = new Date('2025-12-31');
 echo $date->getYear() . '<p>';  // выведет '2025'
-echo $date->getMonth('en') . '<p>'; // выведет '12'
+echo $date->getMonth() . '<p>'; // выведет '12'
 echo $date->getDay('w') . '<p>';   // выведет '31'
-
 echo $date->getWeekDay() . '<p>';     // выведет '3'
 echo $date->getWeekDay('ru') . '<p>'; // выведет 'среда'
 echo $date->getWeekDay('en') . '<p>'; // выведет 'wednesday'
-echo $date->addDay('2') . '<p>';
-echo $date->getWeekDay() . '<p>'; 
-echo $date->subDay('4') . '<p>';
-echo $date->addMonth('2') . '<p>';
-echo $date->subMonth('4') . '<p>';
-echo $date->getMonth() . '<p>'; // выведет '12'
-echo $date->addYear(2) . '<p>'; // выведет '12'
-echo $date->getYear() . '<p>';  // выведет '2025'
+$date->addDay(4);
+$date->subDay(7);
+$date->addMonth(4);
+$date->subMonth(1);
+$date->addYear(2);
+$date->subYear(1);
+var_dump($date);
 echo $date1 = new Date('2023-07-12') . '<p>';
-echo $date->format('Y.m.d');
 ?>
