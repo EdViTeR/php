@@ -6,7 +6,7 @@
 	<title>PHP</title>
 </head>
 <body>
-	<a href="php/regular/regular.php">Регулярные выражения</a></br>
+	<a href="php/">PHP</a></br>
 	<a href="oop/index.php">ООП</a></br>
 	<a href="task/index.php">Задачник</a>
 	<p>Недодел 41</p>

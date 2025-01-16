@@ -16,10 +16,11 @@ class Date {
 		return date("d", strtotime($this->date));
 	}
 	
-	// возвращает месяц
+	/* возвращает месяц
+	 	переменная $lang может принимать значение ru или en
+	 	если эта не пуста - пусть месяц будет словом на заданном языке 
+	*/ 
 	public function getMonth($lang = null) {
-		// переменная $lang может принимать значение ru или en
-		// если эта не пуста - пусть месяц будет словом на заданном языке 
 		$month = date("m", strtotime($this->date)) - 1;
 		switch ($lang) {
 			case null:
