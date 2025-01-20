@@ -2,15 +2,14 @@
 
 $a = array_diff(scandir(__DIR__), ['.', '..']) ;
 
+// №1
 foreach ($a as $key => $value) {
 	if (is_dir($value)) {
-		$b = array_diff(scandir($value), ['.', '..']) ;
-		foreach ($b as $key => $valuee) {
-			echo $valuee . 'папка<p>';
-		}
+		var_dump(array_diff(scandir($value), ['.', '..']));
 	}
 
-	// if (condition) {
-	// 	// code...
-	// }
+	// №2
+	if (is_file($value)) {
+		var_dump($value);
+	}
 }
