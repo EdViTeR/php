@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * №1
  */
 class Tag {
 	
@@ -42,18 +42,27 @@ class Tag {
 		return $this;
 	}
 
-	// №1
 	public function setAttrs($attrs) {
 		foreach ($attrs as $name => $value) {
 			$this->attrs[$name] = $value;
 		}
 		return $this;
 	}
+
+	public function addClass($className) {
+		if (isset($this->attrs['class'])) {
+			$classNames = explode(' ', $this->attrs['class']);
+
+			if (!in_array($className, $classNames)) {
+				$classNames[] = $className;
+				$this->attrs['class'] = implode(' ', $classNames);
+			}
+		} else {
+			$this->attrs['class'] = $className;
+		}
+		return $this;
+	}
 }
 
 $tag = new Tag('input');
-
-echo (new Tag('input'))
-	->setAttr('name1', 'name')
-	->setAttr('name2', 'name')
-	->open();
+echo (new Tag('input'))->addClass('eee')->addClass('bbb')->open();
