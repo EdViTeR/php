@@ -4,7 +4,7 @@
  * 
  */
 class Tag {
-	
+		
 	private $name;
 	private $attrs = [];
 
@@ -13,17 +13,19 @@ class Tag {
 	}
 
 	public function open() {
-		$name = $this->name . $this->getAttrsStr($this->attrs);
-		return "<$name>";
+		$name = $this->name;
+		$attrsStr = $this->getAttrsStr($this->attrs);
+		return "<$name$attrsStr>";
 	}
 
-	public function close() {
+	public function close(){
 		return "</$this->name>";
 	}
 
+	// №1
 	public function getAttrsStr($attrs) {
-		$result = '';
 		if (!empty($attrs)) {
+			$result = '';
 			foreach ($attrs as $name => $value) {
 				if ($value === true) {
 					$result .= " $name";
@@ -32,23 +34,28 @@ class Tag {
 				}
 			}
 			return $result;
-			} else {
-				return '';
+		} else {
+			return '';
 		}
 	}
 
-	public function setAttr($name, $value) {
+	public function setAttr($name, $value){
 		$this->attrs[$name] = $value;
 		return $this;
 	}
 
-	// №1
 	public function setAttrs($attrs) {
-		foreach ($attrs as $key => $value) {
-			$this->attrs[$key] = $value;
+		foreach ($attrs as $name => $value) {
+			$this->setAttr($name, $value);
 		}
 		return $this;
 	}
+
+	public function removeAttr($name) {
+		unset($this->attrs[$name]);
+		return $this;
+	}
+
 }
 
 $tag = new Tag('input');
@@ -56,4 +63,6 @@ $tag = new Tag('input');
 echo $tag
 	->setAttr('id', 'test')
 	->setAttr('disabled', true)
-	->open(); // выведет <input id="test" disabled>
+	->setAttr('name', 'test1')
+	->removeAttr('name')
+	->open();

@@ -22,8 +22,8 @@ class Tag {
 	}
 
 	public function getAttrsStr($attrs) {
-		$result = '';
 		if (!empty($attrs)) {
+			$result = '';
 			foreach ($attrs as $name => $value) {
 				$result .= " $name=\"$value\"";
 			}

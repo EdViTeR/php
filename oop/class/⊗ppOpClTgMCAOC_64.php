@@ -51,8 +51,6 @@ class Tag {
 	}
 }
 
-$tag = new Tag('input');
-
 echo (new Tag('input'))
 	->setAttr('name1', 'name')
 	->setAttr('name2', 'name')

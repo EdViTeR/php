@@ -20,13 +20,13 @@ class Tag {
 	}
 }
 
-// №3
-$tag = new Tag('header');
-echo $tag->open() . 'header сайта' . $tag->close();
-$tag = new Tag('div');
-echo $tag->open() . "text" . $tag->close();
-$tag = new Tag('input');
-echo $tag->open();
+$input = new Tag('input');
+echo $input->open();
+$div = new Tag('div');
+echo $div->open() . "text" . $div->close();
 // №2
-$tag = new Tag('img');
-echo $tag->open() . $tag->close();
+$img = new Tag('img');
+echo $img->open() . $img->close();
+// №3
+$header = new Tag('header');
+echo $header->open() . 'header сайта' . $header->close();
