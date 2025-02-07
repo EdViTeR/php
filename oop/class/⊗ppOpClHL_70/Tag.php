@@ -1,20 +1,51 @@
 <?php
+require_once 'iTag.php';
 
 /**
  * 
  */
-class Tag {
+class Tag implements iTag {
 	
 	private $name;
 	private $attrs = [];
+	private $text = '';
 
 	function __construct($name) {
 		$this->name = $name;
 	}
 
+	# №1
+	public function getName() {
+		return $this->name;	
+	}
+
+	# №2
+	public function getText() {
+		return $this->text;
+	}
+
+	# №3
+	public function getAttrs() {
+		return $this->attrs;
+	}
+
+	# №4
+	public function getAttr($name) {
+		if (isset($this->attrs[$name])) {
+			return $this->attrs[$name];
+		} else {
+			return null;
+		}
+	}
+
+	public function show() {
+		return $this->open() . $this->text . $this->close();
+	}
+
 	public function open() {
 		$name = $this->name;
 		$attrsStr = $this->getAttrsStr($this->attrs);
+
 		return "<$name$attrsStr>";
 	}
 
@@ -22,25 +53,13 @@ class Tag {
 		return "</$this->name>";
 	}
 
-	public function getAttrsStr($attrs) {
-		if (!empty($attrs)) {
-			$result = '';
-			foreach ($attrs as $name => $value) {
-				if ($value === true) {
-					$result .= " $name";
-				} else {
-					$result .= " $name=\"$value\"";
-				}
-			}
-			return $result;
-		} else {
-			return '';
-		}
+	public function setText($text) {
+		$this->text = $text;
+		return $this;
 	}
 
-	public function setAttr($name, $value) {
+	public function setAttr($name, $value = true) {
 		$this->attrs[$name] = $value;
-
 		return $this;
 	}
 
@@ -54,11 +73,10 @@ class Tag {
 
 	public function removeAttr($name) {
 		unset($this->attrs[$name]);
-
 		return $this;
 	}
 
-	public function addClass($className) {
+	function addClass($className) {
 		if (isset($this->attrs['class'])) {
 			$classNames = explode(' ', $this->attrs['class']);
 			if (!in_array($className, $classNames)) {
@@ -70,13 +88,6 @@ class Tag {
 		}
 
 		return $this;
-	}
-
-	private function removeElem($elem, $arr) {
-		$key = array_search($elem, $arr);
-		array_splice($arr, $key, 1);
-
-		return $arr;
 	}
 
 	public function removeClass($className) {
@@ -92,22 +103,31 @@ class Tag {
 		return $this;
 	}
 
+	public function getAttrsStr($attrs) {
+		if (!empty($attrs)) {
+			$result = '';
+			foreach ($attrs as $name => $value) {
+				if ($value === true) {
+					$result .= " $name";					
+				} else {
+					$result .= " $name=\"$value\"";
+				}
+			}
+			return $result;
+		} else {
+			return '';
+		}
+	}
+
+
+	private function removeElem($elem, $arr) {
+		$key = array_search($elem, $arr);
+		array_splice($arr, $key, 1);
+
+		return $arr;
+	}
+
+	public function __toString() {
+		return $this->open() . $this->text . $this->close();
+	}
 }
-echo (new Tag('input'))->addClass('eee')->open();
-echo (new Tag('input'))->addClass('eee')->addClass('bbb')->open();
-echo (new Tag('input'))
-	->setAttr('class', 'eee bbb')
-	->addClass('kkk')->open();
-echo (new Tag('input'))
-	->setAttr('class', 'eee bbb')
-	->addClass('eee')
-	->open();
-echo (new Tag('input'))
-	->addClass('eee')
-	->addClass('bbb')
-	->addClass('eee')
-	->open();
-echo (new Tag('input'))
-->setAttr('class', 'eee zzz kkk') // добавим 3 класса
-->removeClass('zzz') // удалим класс 'zzz'
-->open();

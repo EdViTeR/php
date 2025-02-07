@@ -53,5 +53,8 @@ class Tag {
 
 echo (new Tag('input'))
 	->setAttr('name1', 'name')
-	->setAttr('name2', 'name')
+	->open();
+
+echo (new Tag('input'))
+	->setAttr('name1', 'name')
 	->open();
