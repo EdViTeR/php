@@ -9,6 +9,6 @@
 	<a href="php/">PHP</a></br>
 	<a href="oop/index.php">ООП</a></br>
 	<a href="task/index.php">Задачник</a>
-	<p>Недодел 41</p>
+	<p>Недодел oop 41, 77, 78, 80</p>
 </body>
 </html>
