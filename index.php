@@ -8,7 +8,8 @@
 <body>
 	<a href="php/">PHP</a></br>
 	<a href="oop/index.php">ООП</a></br>
-	<a href="task/index.php">Задачник</a>
+	<a href="supreme/index.php">Высший</a></br>
+	<a href="task/index.php">Задачник</a></br>
 	<p>Недодел oop 41, 77, 78, 80</p>
 </body>
 </html>
