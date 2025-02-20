@@ -1,0 +1,11 @@
+<root>
+	<product cost="100" amount="3">
+		prod1
+	</product>
+	<product cost="200" amount="4">
+		prod2
+	</product>
+	<product cost="300" amount="5">
+		prod3
+	</product>
+</root>
