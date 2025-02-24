@@ -126,3 +126,28 @@ foreach ($ages as $id => $salary) {
 	$res->execute([$salary, $id]);
 }
 /////////////////////////////////////////////////////////////////
+// ⊗ppSpPDLW_80 №1
+$salary = '%500%';
+$res = $pdo->prepare('SELECT * FROM users WHERE salary LIKE ?'); 
+$res->execute([$salary]);
+$row = $res->fetchAll();
+var_dump($row);
+// №2
+$salary = 900;
+$age = 35;
+$res = $pdo->prepare('SELECT * FROM users WHERE salary >= ? AND age < ?');
+$res->execute([$salary, $age]);
+$row = $res->fetchAll();
+var_dump($row);
+/////////////////////////////////////////////////////////////////
+// ⊗ppSpPDLWo_81 №1
+$start = 3;
+$count = 2;
+
+$res = $pdo->prepare('SELECT * FROM users LIMIT ?, ?');
+$res->bindValue(1, $start, PDO::PARAM_INT);
+$res->bindValue(2, $count, PDO::PARAM_INT);
+
+$res->execute();
+$row = $res->fetchAll();
+var_dump($row);
