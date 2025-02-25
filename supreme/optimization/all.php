@@ -146,11 +146,13 @@ echo round(1000/7);
 // №4
 $num = 320;
 $sum = 0;
-for ($i = 1; $i <= sqrt($num); $i++) {
+$sqnum = sqrt($num);
+for ($i = 1; $i <= $sqnum; $i++) {
     if ($num % $i == 0) {
         $sum += $i;
-        if ($i != $num / $i) {
-            $sum += $num / $i;
+        $div = $num / $i;
+        if ($i != $div) {
+            $sum += $div;
         }
     }
 }
