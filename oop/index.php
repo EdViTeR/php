@@ -5,7 +5,7 @@ echo  '<a href="/">Главная</a><br></br>';
 function takeName() {
     $dir = scandir(__DIR__);
     foreach ($dir as $key => $value) {
-        $res = preg_replace('#[^a-z]+#', '', basename($value));
+        $res = preg_replace('#[^2a-z]+#', '', basename($value));
         if (isset($res) && !empty($res) && basename($value) !== 'index.php') {
             $arr[$res] = basename($value);
         }
