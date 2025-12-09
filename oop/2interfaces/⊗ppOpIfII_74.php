@@ -44,3 +44,4 @@ $programmer = new Programmer('qwe', 2200);
 $programmer->addLangs('php');
 $programmer->addLangs('python');
 echo $programmer->getName();
+print_r($programmer->getLangs());
